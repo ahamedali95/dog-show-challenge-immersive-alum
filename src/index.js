@@ -1,5 +1,6 @@
-let tableBody;
-let form;
+let tableBody = null;
+let form = null;
+let dogId = null;
 
 document.addEventListener('DOMContentLoaded', (event) => {
   tableBody = document.getElementById("table-body");
@@ -20,7 +21,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     event.target.breed.value = "";
     event.target.sex.value = "";
 
-    postDog(newDog);
+    if(!!dogId) {
+      patchDog(newDog);
+    } else {
+      postDog(newDog)
+    }
   });
 });
 
@@ -57,11 +62,36 @@ function postDog(data) {
 }
 
 function handleClick(ele) {
-  const row = document.getElementById("row-" + Number(ele.id.split("-")[1]));
+  const rowId = Number(ele.id.split("-")[1]);
+  const row = document.getElementById("row-" + rowId);
   const columns = [...row.children];
 
   form.name.value = columns[0].innerText;
   form.breed.value = columns[1].innerText;
   form.sex.value = columns[2].innerText;
 
+  dogId = rowId;
+}
+
+function patchDog(data) {
+  const config = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  };
+
+  fetch("http://localhost:3000/dogs/" + dogId, config)
+  .then(response => response.json())
+  .then(data => {
+    const row = document.getElementById(`row-${data.id}`);
+    const columns = [...row.children];
+
+    columns[0].innerText = data.name;
+    columns[1].innerText = data.breed;
+    columns[2].innerText =data.sex;
+
+    dogId = null;
+  });
 }

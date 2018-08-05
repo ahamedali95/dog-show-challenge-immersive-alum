@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Baby",
       "breed": "Scottish Deerhound",
-      "sex": "male"
+      "sex": "kunju"
     },
     {
       "id": 2,
@@ -14,9 +14,9 @@
     },
     {
       "id": 3,
-      "name": "Snickers",
-      "breed": "Dachshund",
-      "sex": "female"
+      "name": "",
+      "breed": "",
+      "sex": "sdfsdf"
     },
     {
       "id": 4,
@@ -62,9 +62,9 @@
     },
     {
       "id": 11,
-      "name": "Jasper",
-      "breed": "Redbone",
-      "sex": "female"
+      "name": "fsfsfsdf",
+      "breed": "Redbonefsdfsdfsdfdsfsd",
+      "sex": "femalefdsfds"
     },
     {
       "id": 12,
@@ -179,6 +179,24 @@
       "breed": "fsdsfdsf",
       "sex": "sfsdfds",
       "id": 30
+    },
+    {
+      "name": "Snickers",
+      "breed": "Dachshund",
+      "sex": "female",
+      "id": 31
+    },
+    {
+      "name": "Baby",
+      "breed": "Scottish Deerhound",
+      "sex": "male",
+      "id": 32
+    },
+    {
+      "name": "fssdfsd",
+      "breed": "fdsf",
+      "sex": "sfdsfs",
+      "id": 33
     }
   ]
 }
